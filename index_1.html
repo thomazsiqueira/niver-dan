@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Niver do Dan · 30</title>
+<meta name="description" content="Sábado, 28/11, a partir das 13h. Cada um leva uma bebida pra compartilhar. Confirme sua presença!">
+<meta property="og:title" content="Niver do Dan · De repente 30">
+<meta property="og:description" content="Sábado, 28/11, a partir das 13h. Cada um leva uma bebida pra compartilhar. Confirme sua presença!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Figtree:wght@400;600;700&display=swap">
+<style>
+/* Layout: topo em degradê rosa com onda (mesmo formato do convite do Thomaz), título em letra cursiva,
+   depois o recado, as informações e o cartão de confirmação. Cores tiradas do convite do Dan. */
+:root {
+  --paper: #efebe5;
+  --frame: #fbfaf7;
+  --rose: #b0525a;
+  --rose-deep: #8e3c44;
+  --rose-soft: #f3dfe0;
+  --blush: #f1d8d4;
+  --sage: #6f7d6c;
+  --sage-soft: #dfe4da;
+  --ink: #2f2828;
+  --ink-soft: #6a6060;
+  --line: #e2dcd5;
+  --script: "Kaushan Script", "Brush Script MT", cursive;
+  --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+[hidden] { display: none !important; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 560px;
+  margin: 0 auto;
+  padding-left: max(18px, env(safe-area-inset-left, 0px));
+  padding-right: max(18px, env(safe-area-inset-right, 0px));
+}
+main.wrap { display: grid; gap: 24px; padding-block: 26px 48px; }
+
+/* Topo com degradê e onda */
+.hero {
+  background: linear-gradient(180deg, #c8777c 0%, #e2a6a6 55%, var(--blush) 100%);
+  padding-top: calc(28px + env(safe-area-inset-top, 0px));
+  position: relative;
+  overflow: hidden;
+}
+.sun {
+  position: absolute;
+  width: 340px; height: 340px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,245,240,.7) 0%, rgba(255,245,240,0) 68%);
+  right: -110px; top: -120px;
+  pointer-events: none;
+}
+.hero .wrap { position: relative; display: grid; gap: 6px; padding-block: 0 26px; }
+.edition {
+  justify-self: start;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--rose-deep);
+  background: rgba(255,255,255,.6);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+.hero h1 {
+  font-family: var(--script);
+  font-weight: 400;
+  color: var(--ink);
+  font-size: clamp(40px, 12vw, 60px);
+  line-height: 1.1;
+  margin: 30px 0 0;
+  white-space: nowrap;
+}
+.countdown { font-weight: 700; color: var(--rose-deep); margin-top: 2px; min-height: 1.5em; }
+.waves { display: block; width: 100%; height: 34px; background: var(--blush); }
+
+/* Recado */
+.hello { display: grid; gap: 12px; margin: 0; }
+.hello p { margin: 0; font-size: 18px; line-height: 1.6; }
+.hello .greet { font-family: var(--script); color: var(--rose); font-size: 26px; line-height: 1.2; }
+.drink {
+  background: var(--rose-soft);
+  color: var(--rose-deep);
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-weight: 600;
+}
+
+.info {
+  display: grid;
+  margin: 0;
+  background: var(--frame);
+  border-radius: 16px;
+  border: 1px solid var(--line);
+}
+.info div { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 12px; padding: 14px 18px; align-items: baseline; }
+.info div + div { border-top: 1px solid var(--line); }
+.info dt { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--sage); }
+.info dd { margin: 0; font-weight: 600; min-width: 0; }
+.info dd span { display: block; font-weight: 400; color: var(--ink-soft); font-size: 15px; }
+.info a { color: var(--rose); font-weight: 700; font-size: 15px; text-underline-offset: 3px; }
+
+/* Confirmação */
+.rsvp {
+  background: var(--rose);
+  color: #fff;
+  border-radius: 20px;
+  padding: 24px 20px;
+  display: grid;
+  gap: 14px;
+}
+.rsvp h2 { font-family: var(--script); font-weight: 400; font-size: 34px; line-height: 1.1; margin: 0; }
+.rsvp p { margin: 0; color: #f7e3e4; }
+form { display: grid; gap: 10px; }
+label.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+input[type=text] {
+  font: inherit;
+  font-size: 18px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: #fff;
+  color: var(--ink);
+  width: 100%;
+}
+input[type=text]::placeholder { color: #a39a9a; }
+input[type=text]:focus { outline: none; border-color: var(--rose-deep); }
+button {
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 18px;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--ink);
+  color: #fff;
+  cursor: pointer;
+  transition: transform .12s ease, background .12s ease;
+}
+button:hover { background: #1f1a1a; }
+button:active { transform: scale(.98); }
+button:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+button:disabled { opacity: .6; cursor: wait; }
+.mine { display: grid; gap: 10px; }
+.yay { font-family: var(--script); font-size: 28px; line-height: 1.2; }
+button.link {
+  justify-self: start; background: none; color: #f7e3e4; padding: 4px 0;
+  font-weight: 600; font-size: 14px; text-decoration: underline; text-underline-offset: 3px;
+}
+button.link:hover { color: #fff; background: none; }
+.status { font-size: 15px; color: #f7e3e4; }
+.status:empty { display: none; }
+.status.err { color: #fff; font-weight: 600; }
+
+.guests { display: grid; gap: 12px; }
+.guests-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.guests h3 { font-family: var(--script); font-weight: 400; color: var(--rose); font-size: 28px; margin: 0; }
+.count { font-weight: 700; color: var(--sage); font-variant-numeric: tabular-nums; }
+ul.names { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+ul.names li {
+  background: var(--frame);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+ul.names li.me { background: var(--sage-soft); border-color: var(--sage); }
+ul.names li.new { animation: pop .4s ease-out; }
+@keyframes pop { from { transform: scale(.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.empty { color: var(--ink-soft); margin: 0; }
+.bye { text-align: center; color: var(--ink-soft); margin: 4px 0 0; }
+.bye strong { font-family: var(--script); font-weight: 400; color: var(--rose); font-size: 26px; }
+@media (prefers-reduced-motion: reduce) { ul.names li.new { animation: none; } button { transition: none; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="edition">De repente 30</span>
+    <h1>Niver do Dan</h1>
+    <div id="countdown" class="countdown"></div>
+  </div>
+</header>
+
+<svg class="waves" viewBox="0 0 600 34" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 26 C 25 12, 50 12, 75 26 S 125 40, 150 26 S 200 12, 225 26 S 275 40, 300 26 S 350 12, 375 26 S 425 40, 450 26 S 500 12, 525 26 S 575 40, 600 26 V34 H0 Z" fill="#efebe5"/>
+</svg>
+
+<main class="wrap">
+  <section class="hello">
+    <p class="greet">Queridos amigos e família,</p>
+    <p>Estou trintando, e essa palavra só não causa mais atrito na língua do que os estalos nos meus joelhos quando me levanto. Então, para fingir que ainda sou jovem, vou fazer uma comemoração simples aqui em casa e adoraria poder vê-los.</p>
+    <p class="drink">A ideia é cada um levar uma bebida para compartilhar 🍻</p>
+  </section>
+
+  <dl class="info">
+    <div><dt>Quando</dt><dd>Sábado, 28 de novembro<span>a partir das 13h</span></dd></div>
+    <div><dt>Onde</dt><dd>Rua Adílio de Oliveira Gonçalves, 240<span>Barra Olímpica · Condomínio Living Parque Jardim, Jasmin</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Ad%C3%ADlio+de+Oliveira+Gon%C3%A7alves+240+Barra+Ol%C3%ADmpica+Rio+de+Janeiro" target="_blank" rel="noopener">Abrir no mapa</a></dd></div>
+  </dl>
+
+  <section class="rsvp" aria-labelledby="rsvp-title">
+    <h2 id="rsvp-title">Vai colar?</h2>
+    <div id="formBox">
+      <form id="rsvpForm" autocomplete="off">
+        <p>Coloque seu nome aqui, assim a gente sabe direitinho quem vai encontrar.</p>
+        <label class="sr" for="nameInput">Seu nome</label>
+        <input id="nameInput" type="text" maxlength="60" placeholder="Seu nome" required>
+        <button id="confirmBtn" type="submit">Eu vou!</button>
+      </form>
+    </div>
+    <div id="mineBox" class="mine" hidden>
+      <div class="yay" id="yay">Oba! Te espero lá!</div>
+      <p>Seu nome já está na lista aqui embaixo.</p>
+      <button id="cancelBtn" class="link" type="button">Não vou mais conseguir ir</button>
+    </div>
+    <div id="status" class="status" role="status"></div>
+  </section>
+
+  <section class="guests" aria-labelledby="guests-title">
+    <div class="guests-head">
+      <h3 id="guests-title">Quem já confirmou</h3>
+      <span id="count" class="count"></span>
+    </div>
+    <p id="empty" class="empty">Carregando a lista…</p>
+    <ul id="names" class="names" hidden></ul>
+  </section>
+
+  <p class="bye">Beijos, <strong>Dan</strong></p>
+</main>
+
+<script>
+// ===== CONFIGURAÇÃO =====
+// URL do App da Web do Google Apps Script (termina em /exec).
+// Se ficar vazia, a página roda em modo demonstração (nada é salvo).
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzSUEAKEfWLfrXSrLpp6Puxau69BsnFnbzepmI1XAfa9jVn412Mb4F3WgAWGG6UO7Mi/exec";
+// Nome da lista na planilha (cada convite tem a sua aba: "Confirmados - dan").
+const EVENT = "dan";
+// Data da festa no formato AAAA-MM-DD (usada na contagem "Faltam X dias").
+const PARTY_DATE = "2026-11-28";
+// ========================
+
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const form = $("rsvpForm"), input = $("nameInput"), btn = $("confirmBtn");
+  const formBox = $("formBox"), mineBox = $("mineBox"), cancelBtn = $("cancelBtn"), yay = $("yay");
+  const statusEl = $("status"), list = $("names"), empty = $("empty"), count = $("count");
+  const KEY = "niver-" + EVENT + "-rsvp";
+  const demo = !SCRIPT_URL;
+  let demoList = [], mine = null, busy = false, seen = null;
+
+  // Contagem regressiva (datas no fuso do Rio)
+  (function () {
+    const fmt = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" });
+    const today = new Date(fmt.format(new Date()) + "T00:00:00Z");
+    const party = new Date(PARTY_DATE + "T00:00:00Z");
+    const days = Math.round((party - today) / 86400000);
+    let txt = "";
+    if (days > 1) txt = "Faltam " + days + " dias!";
+    else if (days === 1) txt = "É amanhã!";
+    else if (days === 0) txt = "É hoje!";
+    $("countdown").textContent = txt;
+  })();
+
+  try { mine = JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) { mine = null; }
+  function saveMine(v) { mine = v; try { v ? localStorage.setItem(KEY, JSON.stringify(v)) : localStorage.removeItem(KEY); } catch (e) {} }
+  function setStatus(msg, err) { statusEl.textContent = msg || ""; statusEl.classList.toggle("err", !!err); }
+
+  function render(items) {
+    const prev = seen; seen = new Set(items.map((x) => x.id));
+    list.textContent = "";
+    items.forEach((it) => {
+      const li = document.createElement("li");
+      li.textContent = String(it.name || "Sem nome");
+      if (mine && it.id === mine.id) li.classList.add("me");
+      if (prev && !prev.has(it.id)) li.classList.add("new");
+      list.append(li);
+    });
+    const n = items.length;
+    count.textContent = n === 0 ? "" : n === 1 ? "1 pessoa" : n + " pessoas";
+    empty.textContent = "Ninguém confirmou ainda. Seja a primeira pessoa!";
+    list.hidden = n === 0; empty.hidden = n !== 0;
+  }
+
+  function showMine() {
+    formBox.hidden = !!mine; mineBox.hidden = !mine;
+    if (mine) yay.textContent = "Oba, " + mine.name.split(" ")[0] + "! Te espero lá!";
+  }
+
+  async function api(body) {
+    if (demo) {
+      if (body && body.action === "confirm") { const it = { id: String(Date.now()), name: body.name }; demoList.push(it); return { ok: true, id: it.id, token: "demo", list: demoList }; }
+      if (body && body.action === "cancel") demoList = demoList.filter((x) => x.id !== body.id);
+      return { ok: true, list: demoList };
+    }
+    const res = body
+      ? await fetch(SCRIPT_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(Object.assign({ event: EVENT }, body)) })
+      : await fetch(SCRIPT_URL + "?event=" + encodeURIComponent(EVENT) + "&t=" + Date.now());
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error || "erro");
+    return data;
+  }
+
+  async function refresh() {
+    try {
+      const data = await api(null);
+      if (mine && !data.list.some((x) => x.id === mine.id)) { saveMine(null); showMine(); }
+      render(data.list);
+    } catch (e) {
+      empty.textContent = "Não consegui carregar a lista agora. Recarregue a página.";
+    }
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = input.value.trim().replace(/\s+/g, " ").slice(0, 60);
+    if (!name) { setStatus("Escreve seu nome aí!", true); return; }
+    if (busy) return;
+    busy = true; btn.disabled = true; btn.textContent = "Confirmando…"; setStatus("");
+    try {
+      const data = await api({ action: "confirm", name });
+      saveMine({ id: data.id, token: data.token, name });
+      render(data.list); showMine();
+    } catch (err) {
+      setStatus("Não deu pra confirmar agora. Tenta de novo em instantes?", true);
+    } finally { busy = false; btn.disabled = false; btn.textContent = "Eu vou!"; }
+  });
+
+  cancelBtn.addEventListener("click", async () => {
+    if (!mine || busy) return;
+    busy = true; cancelBtn.disabled = true; setStatus("Tirando seu nome…");
+    try {
+      const data = await api({ action: "cancel", id: mine.id, token: mine.token });
+      saveMine(null); render(data.list); showMine();
+      setStatus("Pena! Se mudar de ideia, é só confirmar de novo.");
+    } catch (err) {
+      setStatus("Não deu pra tirar seu nome agora. Tenta de novo em instantes?", true);
+    } finally { busy = false; cancelBtn.disabled = false; }
+  });
+
+  if (demo && mine) saveMine(null);
+  showMine();
+  refresh();
+  if (!demo) setInterval(() => { if (!document.hidden && !busy) refresh(); }, 20000);
+})();
+</script>
+</body>
+</html>
